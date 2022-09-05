@@ -3,5 +3,61 @@
 {% block title %}Converter{% endblock %}
 
 {% block content %}
-<p id="test">asda</p>
+
+<section>
+    
+        
+    <section>
+    <div class="container margintop" style="margin-top: 150px; text-align:center; color: aliceblue;">
+        <div class="row">
+        <div class="card-group">
+    
+            <div class="card card-style p-1 m-2" style="border: 1px solid; border-radius: 20px 20px 20px 20px;background-color: black;">
+            <h5>Конвертер валют</h5>
+            <form action="/" method="POST">
+                {% csrf_token %}
+                <label for="">Сумма:</label>
+                <input name="summa" type="summa">
+                <select name="from" class="" id="form_from">
+                    {% if data %}
+                        <option value='{{ vaultfor }}'>{{ vaultfor }}</option>
+                    {% endif %}
+                    {% for el in rates %}
+                        {% if el != vaultfor %}
+                            <option value='{{ el }}'>
+                                {{ el }}
+                            </option>
+                        {% endif %}
+                    {% endfor %}
+                    
+                </select>
+                <label for="">-></label>
+                <select name="to" class="" id="form_to">
+                    {% if data %}
+                        <option value='{{ valtto }}'>{{ valtto }}</option>
+                    {% endif %}
+                    {% for el in rates %}
+                        {% if el != valtto %}
+                            <option value='{{ el }}'> 
+                                {{ el }} 
+                            </option>
+                        {% endif %}
+                    {% endfor %}
+                    
+                </select>
+                <div id="result">
+                    <p></p>
+                    <p></p>
+                    <p>{{ data }}</p>
+                </div>
+                <button type="submit" class="btn btn-primary" id="button1">Расчитать</button>
+                <p></p>
+                <p></p>
+                </form>
+            
+            </div>
+</section>
+
+
 {% endblock %}
+
