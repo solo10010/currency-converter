@@ -19,9 +19,9 @@ jobs:
   
       - name: install deps
         run: | 
-        python install pip
-        source venv/bin/activate
-        pip install -r requirements.txt
+          python install pip
+          source venv/bin/activate
+          pip install -r requirements.txt
 
       - name: Run django site
         run: python3 converter/manage.py runserver
