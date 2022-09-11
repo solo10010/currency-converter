@@ -1,4 +1,4 @@
-name: test
+name: test # имя actoins
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
 jobs:
 
   deploy: # имя джобы
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # операционная система
     steps:
       - uses: actions/checkout@v3 # клонируем репозиторий
       # устанавливаем питон и зависимости
@@ -17,10 +17,8 @@ jobs:
         with:
           python-version: '3.9'
   
-      - name: install deps
+      - name: install deps # много сторочный для установки зависимостей
         run: | 
           source venv/bin/activate
           pip install -r requirements.txt
-
-      - name: Run django site
-        run: python3 converter/manage.py runserver
+          python3 converter/manage.py runserver       
