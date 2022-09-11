@@ -19,7 +19,6 @@ jobs:
   
       - name: install deps
         run: | 
-          python install pip
           source venv/bin/activate
           pip install -r requirements.txt
 
