@@ -1,4 +1,4 @@
-name: test # имя actoins
+name: django_test # имя actoins
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  deploy: # имя джобы
+  django_run: # имя джобы
 
     runs-on: ubuntu-latest # операционная система    
     strategy:
@@ -28,5 +28,5 @@ jobs:
           source venv/bin/activate
           pip install -r requirements.txt
 
-      - name: run jango site
-        run: python converter/manage.py test   
+      - name: run jango test
+        run: python converter/manage.py test 
